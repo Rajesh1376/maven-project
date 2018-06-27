@@ -25,10 +25,12 @@ http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/jso
         <db:select config-ref="Derby_Configuration" doc:name="Database">
             <db:parameterized-query><![CDATA[Select * from FLIGHTS]]></db:parameterized-query>
         </db:select>
+        
         <json:object-to-json-transformer doc:name="Object to JSON"/>
         <jms:outbound-endpoint doc:name="JMS" connector-ref="Active_MQ" queue="flights">
             <xa-transaction action="NONE"/>
         </jms:outbound-endpoint>
+        
         <flow-ref name="logFlights" doc:name="Log Flights"/>
     </flow>
     <flow name="logFlights">
