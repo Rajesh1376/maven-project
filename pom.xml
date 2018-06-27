@@ -189,6 +189,7 @@
 		</dependency>
 	</dependencies>
 
+	<!-- Adding a comment to separate repositories -->
 	<repositories>
 		<repository>
 			<id>Central</id>
